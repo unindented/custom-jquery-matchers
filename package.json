@@ -34,6 +34,12 @@
   },
 
   "devDependencies": {
+    "jquery":                       "*",
+    "jasmine":                      "^2.0",
+    "jshint":                       "^2.7",
+    "jscs":                         "^1.13",
+    "webpack":                      "^1.0",
+
     "karma":                        "~0.12.31",
     "karma-cli":                    "~0.0.4",
     "karma-webpack":                "~1.5.1",
