@@ -1,4 +1,4 @@
-# Jasmine jQuery Matchers [![Build Status](https://secure.travis-ci.org/unindented/jasmine-jquery-matchers.png)](http://travis-ci.org/unindented/jasmine-jquery-matchers) [![Dependency Status](https://gemnasium.com/unindented/jasmine-jquery-matchers.png)](https://gemnasium.com/unindented/jasmine-jquery-matchers) [![Coverage Status](https://coveralls.io/repos/unindented/jasmine-jquery-matchers/badge.png)](https://coveralls.io/r/unindented/jasmine-jquery-matchers)
+# Jasmine jQuery Matchers [![Build Status](https://img.shields.io/travis/unindented/jasmine-jquery-matchers.svg)](http://travis-ci.org/unindented/jasmine-jquery-matchers) [![Dependency Status](https://img.shields.io/gemnasium/unindented/jasmine-jquery-matchers.svg)](https://gemnasium.com/unindented/jasmine-jquery-matchers) [![Coverage Status](https://img.shields.io/coveralls/unindented/jasmine-jquery-matchers.svg)](https://coveralls.io/r/unindented/jasmine-jquery-matchers)
 
 Adds a set of custom matchers for HTML and CSS related checks, using jQuery.
 
