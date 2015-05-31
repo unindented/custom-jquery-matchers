@@ -11,41 +11,41 @@
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-/******/
+
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-/******/
+
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/
+
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-/******/
+
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
-/******/
+
+
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-/******/
+
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-/******/
+
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-/******/
+
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
@@ -54,7 +54,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	module.exports = __webpack_require__(1);
 
@@ -62,13 +62,13 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var $ = __webpack_require__(2);
 
 	var slice = Array.prototype.slice;
 
-	var partial = function (func) {
+	var partial = function partial(func) {
 	  var boundArgs = slice.call(arguments, 1);
 
 	  return function () {
@@ -77,11 +77,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	};
 
-	var hasProperty = function (actual, expected) {
-	  return (expected === undefined ? actual !== undefined : actual === expected);
+	var hasProperty = function hasProperty(actual, expected) {
+	  return expected === undefined ? actual !== undefined : actual === expected;
 	};
 
-	var hasCss = function (el, css) {
+	var hasCss = function hasCss(el, css) {
 	  var prop;
 	  var value;
 	  var $el = $(el);
@@ -89,7 +89,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  for (prop in css) {
 	    if (css.hasOwnProperty(prop)) {
 	      value = css[prop];
-	      if (value === "auto" && $el.get(0).style[prop] === "auto") {
+	      if (value === 'auto' && $el.get(0).style[prop] === 'auto') {
 	        continue;
 	      }
 	      if ($el.css(prop) !== value) {
@@ -100,11 +100,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return true;
 	};
 
-	var passes = function (a, b) {
-	  return (!a ^ !b);
+	var passes = function passes(a, b) {
+	  return !a ^ !b;
 	};
 
-	var compares = function (func) {
+	var compares = function compares(func) {
 	  return {
 	    compare: partial(func, false),
 	    negativeCompare: partial(func, true)
@@ -112,232 +112,232 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	module.exports = {
-	  toExist: function () {
+	  toExist: function toExist() {
 	    return compares(function (not, el) {
 	      var actual = $(el).length;
 	      return {
 	        pass: passes(actual > 0, not),
-	        message: "Expected element" + (not ? " not" : "") + " to exist"
+	        message: 'Expected element' + (not ? ' not' : '') + ' to exist'
 	      };
 	    });
 	  },
 
-	  toHaveLength: function () {
+	  toHaveLength: function toHaveLength() {
 	    return compares(function (not, el, expected) {
 	      var actual = $(el).length;
 	      return {
 	        pass: passes(actual === expected, not),
-	        message: "Expected element" + (not ? " not" : "") + " to have length " + expected + ", but had " + actual
+	        message: 'Expected element' + (not ? ' not' : '') + ' to have length ' + expected + ', but had ' + actual
 	      };
 	    });
 	  },
 
-	  toHaveId: function () {
+	  toHaveId: function toHaveId() {
 	    return compares(function (not, el, expected) {
-	      var actual = $(el).attr("id");
+	      var actual = $(el).attr('id');
 	      return {
 	        pass: passes(actual === expected, not),
-	        message: "Expected element" + (not ? " not" : "") + " to have ID '" + expected + "', but had '" + actual + "'"
+	        message: 'Expected element' + (not ? ' not' : '') + ' to have ID \'' + expected + '\', but had \'' + actual + '\''
 	      };
 	    });
 	  },
 
-	  toHaveClass: function () {
+	  toHaveClass: function toHaveClass() {
 	    return compares(function (not, el, expected) {
-	      var actual = $(el).attr("class");
+	      var actual = $(el).attr('class');
 	      return {
 	        pass: passes($(el).hasClass(expected), not),
-	        message: "Expected element" + (not ? " not" : "") + " to have class '" + expected + "', but had '" + actual + "'"
+	        message: 'Expected element' + (not ? ' not' : '') + ' to have class \'' + expected + '\', but had \'' + actual + '\''
 	      };
 	    });
 	  },
 
-	  toHaveTag: function () {
+	  toHaveTag: function toHaveTag() {
 	    return compares(function (not, el, expected) {
-	      var actual = $(el).prop("tagName").toLowerCase();
+	      var actual = $(el).prop('tagName').toLowerCase();
 	      expected = expected.toLowerCase();
 	      return {
 	        pass: passes(actual === expected, not),
-	        message: "Expected element" + (not ? " not" : "") + " to have tag '" + expected + "', but had '" + actual + "'"
+	        message: 'Expected element' + (not ? ' not' : '') + ' to have tag \'' + expected + '\', but had \'' + actual + '\''
 	      };
 	    });
 	  },
 
-	  toHaveAttr: function () {
+	  toHaveAttr: function toHaveAttr() {
 	    return compares(function (not, el, attr, expected) {
 	      var actual = $(el).attr(attr);
-	      var addendum = (expected !== undefined ? (" with value '" + expected + "'") : "");
+	      var addendum = expected !== undefined ? ' with value \'' + expected + '\'' : '';
 	      return {
 	        pass: passes(hasProperty(actual, expected), not),
-	        message: "Expected element" + (not ? " not" : "") + " to have attribute '" + attr + "'" + addendum + ", but had '" + actual + "'"
+	        message: 'Expected element' + (not ? ' not' : '') + ' to have attribute \'' + attr + '\'' + addendum + ', but had \'' + actual + '\''
 	      };
 	    });
 	  },
 
-	  toHaveProp: function () {
+	  toHaveProp: function toHaveProp() {
 	    return compares(function (not, el, prop, expected) {
 	      var actual = $(el).prop(prop);
-	      var addendum = (expected !== undefined ? (" with value '" + expected + "'") : "");
+	      var addendum = expected !== undefined ? ' with value \'' + expected + '\'' : '';
 	      return {
 	        pass: passes(hasProperty(actual, expected), not),
-	        message: "Expected element" + (not ? " not" : "") + " to have property '" + prop + "'" + addendum + ", but had '" + actual + "'"
+	        message: 'Expected element' + (not ? ' not' : '') + ' to have property \'' + prop + '\'' + addendum + ', but had \'' + actual + '\''
 	      };
 	    });
 	  },
 
-	  toHaveText: function () {
+	  toHaveText: function toHaveText() {
 	    return compares(function (not, el, expected) {
 	      var actual = $.trim($(el).text());
 	      if (expected && $.isFunction(expected.test)) {
 	        return {
 	          pass: passes(expected.test(actual), not),
-	          message: "Expected element" + (not ? " not" : "") + " to have text matching '" + expected + "', but had '" + actual + "'"
+	          message: 'Expected element' + (not ? ' not' : '') + ' to have text matching \'' + expected + '\', but had \'' + actual + '\''
 	        };
 	      } else {
 	        return {
 	          pass: passes(actual.indexOf(expected) !== -1, not),
-	          message: "Expected element" + (not ? " not" : "") + " to have text '" + expected + "', but had '" + actual + "'"
+	          message: 'Expected element' + (not ? ' not' : '') + ' to have text \'' + expected + '\', but had \'' + actual + '\''
 	        };
 	      }
 	    });
 	  },
 
-	  toHaveData: function () {
+	  toHaveData: function toHaveData() {
 	    return compares(function (not, el, data, expected) {
 	      var actual = $(el).data(data);
-	      var addendum = (expected !== undefined ? (" with value '" + expected + "'") : "");
+	      var addendum = expected !== undefined ? ' with value \'' + expected + '\'' : '';
 	      return {
 	        pass: passes(hasProperty(actual, expected), not),
-	        message: "Expected element" + (not ? " not" : "") + " to have data '" + data + "'" + addendum + ", but had '" + actual + "'"
+	        message: 'Expected element' + (not ? ' not' : '') + ' to have data \'' + data + '\'' + addendum + ', but had \'' + actual + '\''
 	      };
 	    });
 	  },
 
-	  toHaveValue: function () {
+	  toHaveValue: function toHaveValue() {
 	    return compares(function (not, el, expected) {
 	      var actual = $(el).val();
 	      return {
 	        pass: passes(actual === expected, not),
-	        message: "Expected element" + (not ? " not" : "") + " to have value '" + expected + "', but had '" + actual + "'"
+	        message: 'Expected element' + (not ? ' not' : '') + ' to have value \'' + expected + '\', but had \'' + actual + '\''
 	      };
 	    });
 	  },
 
-	  toHaveCss: function () {
+	  toHaveCss: function toHaveCss() {
 	    return compares(function (not, el, expected) {
 	      return {
 	        pass: passes(hasCss(el, expected), not),
-	        message: "Expected element" + (not ? " not" : "") + " to have CSS " + jasmine.pp(expected)
+	        message: 'Expected element' + (not ? ' not' : '') + ' to have CSS ' + jasmine.pp(expected)
 	      };
 	    });
 	  },
 
-	  toBeChecked: function () {
+	  toBeChecked: function toBeChecked() {
 	    return compares(function (not, el) {
 	      return {
-	        pass: passes($(el).is(":checked"), not),
-	        message: "Expected element" + (not ? " not" : "") + " to be checked"
+	        pass: passes($(el).is(':checked'), not),
+	        message: 'Expected element' + (not ? ' not' : '') + ' to be checked'
 	      };
 	    });
 	  },
 
-	  toBeDisabled: function () {
+	  toBeDisabled: function toBeDisabled() {
 	    return compares(function (not, el) {
 	      return {
-	        pass: passes($(el).is(":disabled"), not),
-	        message: "Expected element" + (not ? " not" : "") + " to be disabled"
+	        pass: passes($(el).is(':disabled'), not),
+	        message: 'Expected element' + (not ? ' not' : '') + ' to be disabled'
 	      };
 	    });
 	  },
 
-	  toBeEmpty: function () {
+	  toBeEmpty: function toBeEmpty() {
 	    return compares(function (not, el) {
 	      return {
-	        pass: passes($(el).is(":empty"), not),
-	        message: "Expected element" + (not ? " not" : "") + " to be empty"
+	        pass: passes($(el).is(':empty'), not),
+	        message: 'Expected element' + (not ? ' not' : '') + ' to be empty'
 	      };
 	    });
 	  },
 
-	  toBeHidden: function () {
+	  toBeHidden: function toBeHidden() {
 	    return compares(function (not, el) {
 	      return {
-	        pass: passes($(el).is(":hidden"), not),
-	        message: "Expected element" + (not ? " not" : "") + " to be hidden"
+	        pass: passes($(el).is(':hidden'), not),
+	        message: 'Expected element' + (not ? ' not' : '') + ' to be hidden'
 	      };
 	    });
 	  },
 
-	  toBeSelected: function () {
+	  toBeSelected: function toBeSelected() {
 	    return compares(function (not, el) {
 	      return {
-	        pass: passes($(el).is(":selected"), not),
-	        message: "Expected element" + (not ? " not" : "") + " to be selected"
+	        pass: passes($(el).is(':selected'), not),
+	        message: 'Expected element' + (not ? ' not' : '') + ' to be selected'
 	      };
 	    });
 	  },
 
-	  toBeVisible: function () {
+	  toBeVisible: function toBeVisible() {
 	    return compares(function (not, el) {
 	      return {
-	        pass: passes($(el).is(":visible"), not),
-	        message: "Expected element" + (not ? " not" : "") + " to be visible"
+	        pass: passes($(el).is(':visible'), not),
+	        message: 'Expected element' + (not ? ' not' : '') + ' to be visible'
 	      };
 	    });
 	  },
 
-	  toBeFocused: function () {
+	  toBeFocused: function toBeFocused() {
 	    return compares(function (not, el) {
 	      el = $(el).get(0);
 	      return {
 	        pass: passes(el === el.ownerDocument.activeElement, not),
-	        message: "Expected element" + (not ? " not" : "") + " to be focused"
+	        message: 'Expected element' + (not ? ' not' : '') + ' to be focused'
 	      };
 	    });
 	  },
 
-	  toBeInDom: function () {
+	  toBeInDom: function toBeInDom() {
 	    return compares(function (not, el) {
 	      el = $(el).get(0);
 	      return {
 	        pass: passes($.contains(document.documentElement, el), not),
-	        message: "Expected element" + (not ? " not" : "") + " to be attached to the DOM"
+	        message: 'Expected element' + (not ? ' not' : '') + ' to be attached to the DOM'
 	      };
 	    });
 	  },
 
-	  toBeMatchedBy: function () {
+	  toBeMatchedBy: function toBeMatchedBy() {
 	    return compares(function (not, el, expected) {
 	      var actual = $(el).filter(expected).length;
 	      return {
 	        pass: passes(actual > 0, not),
-	        message: "Expected element" + (not ? " not" : "") + " to be matched by '" + expected + "'"
+	        message: 'Expected element' + (not ? ' not' : '') + ' to be matched by \'' + expected + '\''
 	      };
 	    });
 	  },
 
-	  toHaveDescendant: function () {
+	  toHaveDescendant: function toHaveDescendant() {
 	    return compares(function (not, el, selector) {
 	      var actual = $(el).find(selector).length;
 	      return {
 	        pass: passes(actual > 0, not),
-	        message: "Expected element" + (not ? " not" : "") + " to contain child '" + selector + "'"
+	        message: 'Expected element' + (not ? ' not' : '') + ' to contain child \'' + selector + '\''
 	      };
 	    });
 	  },
 
-	  toHaveDescendantWithText: function () {
+	  toHaveDescendantWithText: function toHaveDescendantWithText() {
 	    return compares(function (not, el, selector, expected) {
 	      var actual = $.trim($(el).find(selector).text());
 	      if (expected && $.isFunction(expected.test)) {
 	        return {
 	          pass: passes(expected.test(actual), not),
-	          message: "Expected element" + (not ? " not" : "") + " to have descendant '" + selector + "' with text matching '" + expected + "', but had '" + actual + "'"
+	          message: 'Expected element' + (not ? ' not' : '') + ' to have descendant \'' + selector + '\' with text matching \'' + expected + '\', but had \'' + actual + '\''
 	        };
 	      } else {
 	        return {
 	          pass: passes(actual.indexOf(expected) !== -1, not),
-	          message: "Expected element" + (not ? " not" : "") + " to have descendant '" + selector + "' with text '" + expected + "', but had '" + actual + "'"
+	          message: 'Expected element' + (not ? ' not' : '') + ' to have descendant \'' + selector + '\' with text \'' + expected + '\', but had \'' + actual + '\''
 	        };
 	      }
 	    });
@@ -353,3 +353,4 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ }
 /******/ ])
 });
+;
