@@ -5,6 +5,8 @@
   "version":     "0.1.0",
   "main":        "dist/jasmine-jquery-matchers.js",
 
+  "license":     "MIT",
+
   "repository": {
     "type": "git",
     "url":  "git://github.com/unindented/jasmine-jquery-matchers.git"
