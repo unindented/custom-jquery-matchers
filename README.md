@@ -44,7 +44,7 @@ describe('My suite', function () {
   });
 
   it('passes if the element has the specified class', function () {
-    expect($('<div class="some-class"></div>')).toHaveClass('some-class')
+    expect($('<div class="some-class"></div>')).toHaveClass('some-class');
   });
 });
 ```
@@ -62,7 +62,7 @@ describe('My suite', function () {
   });
 
   it('passes if the element has the specified class', function () {
-    expect($('<div class="some-class"></div>')).toHaveClass('some-class')
+    expect($('<div class="some-class"></div>')).toHaveClass('some-class');
   });
 });
 ```
@@ -108,4 +108,4 @@ If you want to see usage examples, look at [test/specs/matchers.js](https://raw.
 
 ## License
 
-Copyright (c) 2014 Daniel Perez Alvarez ([unindented.org](http://unindented.org/)). This is free software, and may be redistributed under the terms specified in the LICENSE file.
+Copyright (c) 2015 Daniel Perez Alvarez ([unindented.org](https://unindented.org/)). This is free software, and may be redistributed under the terms specified in the LICENSE file.
