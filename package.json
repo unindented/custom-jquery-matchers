@@ -2,7 +2,7 @@
   "name":        "jasmine-jquery-matchers",
   "description": "Add a set of custom matchers for HTML and CSS related checks, using jQuery.",
 
-  "version":     "1.0.0",
+  "version":     "1.0.1",
   "main":        "dist/jasmine-jquery-matchers.js",
 
   "license":     "MIT",
