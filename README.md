@@ -19,8 +19,6 @@ If you are using `bower`:
 $ bower install --save-dev jasmine-jquery-matchers
 ```
 
-Otherwise, simply download [dist/jasmine-jquery-matchers.js](https://raw.githubusercontent.com/unindented/jasmine-jquery-matchers/master/dist/jasmine-jquery-matchers.js) and include it in your test runner file (or add it to your `jasmine.yml` file if you're using Ruby with [jasmine-gem](https://github.com/jasmine/jasmine-gem)). Remember to also include [jQuery](http://jquery.com/), as `jasmine-jquery-matchers` relies on it.
-
 
 ## Usage
 
