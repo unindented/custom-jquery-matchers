@@ -1,26 +1,24 @@
-'use strict';
+import $ from 'jquery';
 
-var $ = require('jquery');
+const slice = Array.prototype.slice;
 
-var slice = Array.prototype.slice;
-
-var partial = function (func) {
-  var boundArgs = slice.call(arguments, 1);
+const partial = function (func) {
+  const boundArgs = slice.call(arguments, 1);
 
   return function () {
-    var args = boundArgs.concat(slice.call(arguments));
+    const args = boundArgs.concat(slice.call(arguments));
     return func.apply(this, args);
   };
 };
 
-var hasProperty = function (actual, expected) {
+const hasProperty = function (actual, expected) {
   return (expected === undefined ? actual !== undefined : actual === expected);
 };
 
-var hasCss = function (el, css) {
-  var prop;
-  var value;
-  var $el = $(el);
+const hasCss = function (el, css) {
+  let prop;
+  let value;
+  const $el = $(el);
 
   for (prop in css) {
     if (css.hasOwnProperty(prop)) {
@@ -36,11 +34,11 @@ var hasCss = function (el, css) {
   return true;
 };
 
-var passes = function (a, b) {
+const passes = function (a, b) {
   return (!a ^ !b);
 };
 
-var compares = function (func) {
+const compares = function (func) {
   return {
     compare: partial(func, false),
     negativeCompare: partial(func, true)
@@ -50,7 +48,7 @@ var compares = function (func) {
 module.exports = {
   toExist: function () {
     return compares(function (not, el) {
-      var actual = $(el).length;
+      const actual = $(el).length;
       return {
         pass: passes(actual > 0, not),
         message: `Expected element${not ? ' not' : ''} to exist`
@@ -60,7 +58,7 @@ module.exports = {
 
   toHaveLength: function () {
     return compares(function (not, el, expected) {
-      var actual = $(el).length;
+      const actual = $(el).length;
       return {
         pass: passes(actual === expected, not),
         message: `Expected element${not ? ' not' : ''} to have length ${expected}, but had ${actual}`
@@ -70,7 +68,7 @@ module.exports = {
 
   toHaveId: function () {
     return compares(function (not, el, expected) {
-      var actual = $(el).attr('id');
+      const actual = $(el).attr('id');
       return {
         pass: passes(actual === expected, not),
         message: `Expected element${not ? ' not' : ''} to have ID '${expected}', but had '${actual}'`
@@ -80,7 +78,7 @@ module.exports = {
 
   toHaveClass: function () {
     return compares(function (not, el, expected) {
-      var actual = $(el).attr('class');
+      const actual = $(el).attr('class');
       return {
         pass: passes($(el).hasClass(expected), not),
         message: `Expected element${not ? ' not' : ''} to have class '${expected}', but had '${actual}'`
@@ -90,7 +88,7 @@ module.exports = {
 
   toHaveTag: function () {
     return compares(function (not, el, expected) {
-      var actual = $(el).prop('tagName').toLowerCase();
+      const actual = $(el).prop('tagName').toLowerCase();
       expected = expected.toLowerCase();
       return {
         pass: passes(actual === expected, not),
@@ -101,8 +99,8 @@ module.exports = {
 
   toHaveAttr: function () {
     return compares(function (not, el, attr, expected) {
-      var actual = $(el).attr(attr);
-      var addendum = (expected !== undefined ? (` with value '${expected}'`) : '');
+      const actual = $(el).attr(attr);
+      const addendum = (expected !== undefined ? (` with value '${expected}'`) : '');
       return {
         pass: passes(hasProperty(actual, expected), not),
         message: `Expected element${not ? ' not' : ''} to have attribute '${attr}'${addendum}, but had '${actual}'`
@@ -112,8 +110,8 @@ module.exports = {
 
   toHaveProp: function () {
     return compares(function (not, el, prop, expected) {
-      var actual = $(el).prop(prop);
-      var addendum = (expected !== undefined ? (` with value '${expected}'`) : '');
+      const actual = $(el).prop(prop);
+      const addendum = (expected !== undefined ? (` with value '${expected}'`) : '');
       return {
         pass: passes(hasProperty(actual, expected), not),
         message: `Expected element${not ? ' not' : ''} to have property '${prop}'${addendum}, but had '${actual}'`
@@ -123,7 +121,7 @@ module.exports = {
 
   toHaveText: function () {
     return compares(function (not, el, expected) {
-      var actual = $.trim($(el).text());
+      const actual = $.trim($(el).text());
       if (expected && $.isFunction(expected.test)) {
         return {
           pass: passes(expected.test(actual), not),
@@ -141,8 +139,8 @@ module.exports = {
 
   toHaveData: function () {
     return compares(function (not, el, data, expected) {
-      var actual = $(el).data(data);
-      var addendum = (expected !== undefined ? (` with value '${expected}'`) : '');
+      const actual = $(el).data(data);
+      const addendum = (expected !== undefined ? (` with value '${expected}'`) : '');
       return {
         pass: passes(hasProperty(actual, expected), not),
         message: `Expected element${not ? ' not' : ''} to have data '${data}'${addendum}, but had '${actual}'`
@@ -152,7 +150,7 @@ module.exports = {
 
   toHaveValue: function () {
     return compares(function (not, el, expected) {
-      var actual = $(el).val();
+      const actual = $(el).val();
       return {
         pass: passes(actual === expected, not),
         message: `Expected element${not ? ' not' : ''} to have value '${expected}', but had '${actual}'`
@@ -245,7 +243,7 @@ module.exports = {
 
   toBeMatchedBy: function () {
     return compares(function (not, el, expected) {
-      var actual = $(el).filter(expected).length;
+      const actual = $(el).filter(expected).length;
       return {
         pass: passes(actual > 0, not),
         message: `Expected element${not ? ' not' : ''} to be matched by '${expected}'`
@@ -255,7 +253,7 @@ module.exports = {
 
   toHaveDescendant: function () {
     return compares(function (not, el, selector) {
-      var actual = $(el).find(selector).length;
+      const actual = $(el).find(selector).length;
       return {
         pass: passes(actual > 0, not),
         message: `Expected element${not ? ' not' : ''} to contain child '${selector}'`
@@ -265,7 +263,7 @@ module.exports = {
 
   toHaveDescendantWithText: function () {
     return compares(function (not, el, selector, expected) {
-      var actual = $.trim($(el).find(selector).text());
+      const actual = $.trim($(el).find(selector).text());
       if (expected && $.isFunction(expected.test)) {
         return {
           pass: passes(expected.test(actual), not),
