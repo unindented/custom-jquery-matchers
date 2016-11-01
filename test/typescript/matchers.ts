@@ -1,7 +1,10 @@
-import $ from 'jquery'
+/// <reference types="jasmine" />
+/// <reference types="../../index" />
+
+import * as $ from 'jquery'
 
 describe('Matchers', function () {
-  let $el
+  let $el: JQuery
 
   afterEach(function () {
     $el.remove()
