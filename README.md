@@ -29,6 +29,26 @@ expect(this.$el).toHaveText('Hello world!');
 ```
 
 
+### ES2015
+
+If you are using the new module syntax, `import` all exported matchers:
+
+```js
+import * as matchers from 'jasmine-jquery-matchers';
+
+describe('My suite', function () {
+  beforeEach(function () {
+    jasmine.addMatchers(matchers);
+  });
+
+  it('passes if the element has the specified class', function () {
+    expect($('<div class="some-class"></div>')).toHaveClass('some-class');
+  });
+});
+```
+
+Note that `jasmine-immutable-matchers` does not have a default export!
+
 ### AMD/CommonJS
 
 If you are using AMD or CommonJS, `require` normally:
