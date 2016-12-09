@@ -29,7 +29,6 @@
     "jquery": "*"
   },
   "devDependencies": {
-    "@types/jasmine": "^2.5.37",
     "@types/jquery": "^2.0.33",
     "babel-core": "^6.18.0",
     "babel-loader": "^6.2.7",
