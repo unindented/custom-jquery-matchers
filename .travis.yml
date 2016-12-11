@@ -1,17 +1,3 @@
 language: node_js
 node_js:
   - '6'
-
-env:
-  - COV=true
-
-deploy:
-  provider: npm
-  email: unindented@gmail.com
-  api_key:
-    secure: HjgZhQyBvr6quKniuuNzaxpBUWvLH2m7oIyeojb6FOB5idWekYXxTneXmcK43NN7dgQ3at/JCvg3gfJDW7QSdvXwstwTgPnDjis1JDhHR9pk3n5/86JNBxA1V65DfZi+z6utWd36d3NqWI5LDS1gi0MKFRgdvil9Ypd9FVQ6z3Y=
-  on:
-    tags: true
-
-after_script:
-  - find ./coverage -name lcov.info -exec cat {} \; | ./node_modules/coveralls/bin/coveralls.js

@@ -1,0 +1,33 @@
+{
+  "name": "custom-jquery-matchers",
+  "description": "Add a set of custom matchers for HTML and CSS related checks, using jQuery.",
+  "version": "1.4.0",
+  "main": "dist/custom-jquery-matchers.js",
+  "typings": "index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/unindented/custom-jquery-matchers.git"
+  },
+  "keywords": [
+    "jasmine",
+    "jest",
+    "jquery",
+    "matchers"
+  ],
+  "scripts": {
+    "clean:dist": "rimraf dist",
+    "clean": "run-p clean:*",
+    "build": "webpack --colors --progress --profile --config config/webpack/common.js",
+    "optim": "webpack --colors --progress --profile -p --config config/webpack/common.js",
+    "prepublish": "run-s clean build"
+  },
+  "peerDependencies": {
+    "jquery": "*"
+  },
+  "devDependencies": {
+    "npm-run-all": "^3.1.2",
+    "rimraf": "^2.5.4",
+    "webpack": "^1.14.0"
+  }
+}

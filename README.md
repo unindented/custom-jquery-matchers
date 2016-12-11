@@ -1,91 +1,11 @@
-# Jasmine jQuery Matchers [![Version](https://img.shields.io/npm/v/jasmine-jquery-matchers.svg)](https://www.npmjs.com/package/jasmine-jquery-matchers) [![Build Status](https://img.shields.io/travis/unindented/jasmine-jquery-matchers.svg)](http://travis-ci.org/unindented/jasmine-jquery-matchers) [![Dependency Status](https://img.shields.io/gemnasium/unindented/jasmine-jquery-matchers.svg)](https://gemnasium.com/unindented/jasmine-jquery-matchers) [![Coverage Status](https://img.shields.io/coveralls/unindented/jasmine-jquery-matchers.svg)](https://coveralls.io/r/unindented/jasmine-jquery-matchers)
+# Custom jQuery Matchers for Jasmine and Jest [![Version](https://img.shields.io/npm/v/custom-jquery-matchers.svg)](https://www.npmjs.com/package/custom-jquery-matchers) [![Build Status](https://img.shields.io/travis/unindented/custom-jquery-matchers.svg)](http://travis-ci.org/unindented/custom-jquery-matchers)
 
 Adds a set of custom matchers for HTML and CSS related checks, using jQuery.
 
 The matchers provide custom error messages that try to be as helpful as possible, so that when things fail you can quickly pinpoint the problem.
 
 
-## Installation
-
-If you are using `npm` to manage your dependencies:
-
-```sh
-$ npm install --save-dev jasmine-jquery-matchers
-```
-
-If you are using `bower`:
-
-```sh
-$ bower install --save-dev jasmine-jquery-matchers
-```
-
-
-## Usage
-
-Load these matchers in a `beforeEach` block, and then use them like any other matcher:
-
-```js
-expect(this.$el).toHaveText('Hello world!');
-```
-
-
-### ES2015
-
-If you are using the new module syntax, `import` all exported matchers:
-
-```js
-import * as matchers from 'jasmine-jquery-matchers';
-
-describe('My suite', function () {
-  beforeEach(function () {
-    jasmine.addMatchers(matchers);
-  });
-
-  it('passes if the element has the specified class', function () {
-    expect($('<div class="some-class"></div>')).toHaveClass('some-class');
-  });
-});
-```
-
-Note that `jasmine-immutable-matchers` does not have a default export!
-
-### AMD/CommonJS
-
-If you are using AMD or CommonJS, `require` normally:
-
-```js
-var matchers = require('jasmine-jquery-matchers');
-
-describe('My suite', function () {
-  beforeEach(function () {
-    jasmine.addMatchers(matchers);
-  });
-
-  it('passes if the element has the specified class', function () {
-    expect($('<div class="some-class"></div>')).toHaveClass('some-class');
-  });
-});
-```
-
-### Global
-
-Otherwise, use `window['jasmine-jquery-matchers']`:
-
-```js
-var matchers = window['jasmine-jquery-matchers'];
-
-describe('My suite', function () {
-  beforeEach(function () {
-    jasmine.addMatchers(matchers);
-  });
-
-  it('passes if the element has the specified class', function () {
-    expect($('<div class="some-class"></div>')).toHaveClass('some-class');
-  });
-});
-```
-
-### List of matchers
+## List of matchers
 
 * toExist
 * toHaveLength
@@ -110,13 +30,19 @@ describe('My suite', function () {
 * toHaveDescendant
 * toHaveDescendantWithText
 
-If you want to see usage examples, look at [test/specs/matchers.js](https://raw.githubusercontent.com/unindented/jasmine-jquery-matchers/master/test/specs/matchers.js)
+
+## Packages
+
+| Package | Version |
+|---------|---------|
+| [`jasmine-jquery-matchers`](/packages/jasmine-jquery-matchers) | [![Version](https://img.shields.io/npm/v/jasmine-jquery-matchers.svg)](https://www.npmjs.com/package/jasmine-jquery-matchers) |
+| [`jest-jquery-matchers`](/packages/jest-jquery-matchers) | [![Version](https://img.shields.io/npm/v/jest-jquery-matchers.svg)](https://www.npmjs.com/package/jest-jquery-matchers) |
 
 
 ## Meta
 
-* Code: `git clone git://github.com/unindented/jasmine-jquery-matchers.git`
-* Home: <https://github.com/unindented/jasmine-jquery-matchers/>
+* Code: `git clone git://github.com/unindented/custom-jquery-matchers.git`
+* Home: <https://github.com/unindented/custom-jquery-matchers/>
 
 
 ## Contributors
@@ -126,4 +52,4 @@ If you want to see usage examples, look at [test/specs/matchers.js](https://raw.
 
 ## License
 
-Copyright (c) 2015 Daniel Perez Alvarez ([unindented.org](https://unindented.org/)). This is free software, and may be redistributed under the terms specified in the LICENSE file.
+Copyright (c) 2016 Daniel Perez Alvarez ([unindented.org](https://unindented.org/)). This is free software, and may be redistributed under the terms specified in the LICENSE file.
