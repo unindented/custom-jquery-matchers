@@ -18,6 +18,39 @@ Load these matchers in a `beforeEach` block, and then use them like any other ma
 expect(this.$el).toHaveText('Hello world!');
 ```
 
+### TypeScript
+
+This package includes the necessary declarations for TypeScript. Just make sure they get loaded in your project, for example by adding the package name to the `types` field in your `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "types": [
+      "jest",
+      "jest-jquery-matchers"
+    ]
+  }
+}
+```
+
+Then just load the matchers at runtime in your tests:
+
+```js
+import * as matchers from 'jest-jquery-matchers';
+
+describe('My suite', function () {
+  beforeEach(function () {
+    jest.addMatchers(matchers);
+  });
+
+  it('passes if the element has the specified class', function () {
+    expect($('<div class="some-class"></div>')).toHaveClass('some-class');
+  });
+});
+```
+
 ### ES2015
 
 If you are using the new module syntax, `import` all exported matchers:
