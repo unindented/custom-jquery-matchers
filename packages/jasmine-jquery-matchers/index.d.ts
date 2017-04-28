@@ -1,7 +1,7 @@
 /// <reference types="jasmine"/>
 
 declare namespace jasmine {
-  interface Matchers {
+  interface Matchers<T> {
     toExist(): boolean
     toHaveLength(len: number): boolean
     toHaveId(id: string): boolean
