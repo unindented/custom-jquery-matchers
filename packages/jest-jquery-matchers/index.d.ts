@@ -1,7 +1,7 @@
 /// <reference types="jest"/>
 
 declare namespace jest {
-  interface Matchers {
+  interface Matchers<R> {
     toExist(): boolean
     toHaveLength(len: number): boolean
     toHaveId(id: string): boolean
