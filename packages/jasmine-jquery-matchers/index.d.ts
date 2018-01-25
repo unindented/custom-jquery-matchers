@@ -26,3 +26,5 @@ declare namespace jasmine {
     toHaveDescendantWithText(sel: string, text: string | RegExp): boolean
   }
 }
+
+declare module "jest-jquery-matchers";
