@@ -27,4 +27,4 @@ declare namespace jest {
   }
 }
 
-declare module "jest-jquery-matchers";
+declare module "jest-jquery-matchers"
