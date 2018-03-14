@@ -1,7 +1,7 @@
 {
   "name": "jest-jquery-matchers",
   "description": "Add a set of custom matchers for HTML and CSS related checks, using jQuery.",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "dist/jest-jquery-matchers.js",
   "typings": "index.d.ts",
   "license": "MIT",
