@@ -5,7 +5,7 @@ declare namespace jest {
     toExist(): boolean
     toHaveLength(len: number): boolean
     toHaveId(id: string): boolean
-    toHaveClass(klass: string): boolean
+    toHaveClass(className: string): boolean
     toHaveTag(tag: string): boolean
     toHaveAttr(key: string, val?: any): boolean
     toHaveProp(key: string, val?: any): boolean
