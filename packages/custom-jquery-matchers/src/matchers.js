@@ -91,6 +91,18 @@ export const toHaveText = comparator((el, expected) => {
   return {pass, message}
 })
 
+export const toHaveHtml = comparator((el, expected) => {
+  const actual = $.trim($(el).html())
+  if (expected && $.isFunction(expected.test)) {
+    const pass = expected.test(actual)
+    const message = () => `Expected element${pass ? ' not' : ''} to have html matching '${expected}', but had '${actual}'`
+    return {pass, message}
+  }
+  const pass = (actual.indexOf(expected) !== -1)
+  const message = () => `Expected element${pass ? ' not' : ''} to have html '${expected}', but had '${actual}'`
+  return {pass, message}
+})
+
 export const toHaveData = comparator((el, data, expected) => {
   const actual = $(el).data(data)
   const addendum = (expected !== undefined ? (` with value '${expected}'`) : '')
