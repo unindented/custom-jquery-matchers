@@ -111,6 +111,28 @@ describe('Matchers', function () {
       })
     })
 
+    describe('#toHaveHtml', function () {
+      it('does not pass if the element does not contain the html', function () {
+        $el.html('<h1>hello</h1><p>world</p>')
+        expect($el).not.toHaveHtml('helloworld')
+      })
+
+      it('does not pass if the element\'s text does not match the regex', function () {
+        $el.html('<h1>hello</h1><p>world</p>')
+        expect($el).not.toHaveHtml(/<h2>$/)
+      })
+
+      it('passes if the element contains the html', function () {
+        $el.html('<h1>hello</h1><p>world</p>')
+        expect($el).toHaveHtml('<p>world</p>')
+      })
+
+      it('passes if the element\'s text matches the regex', function () {
+        $el.html('<h1>hello</h1><p>world</p>')
+        expect($el).toHaveHtml(/<h1>.+<\/h1><p>.+<\/p>$/)
+      })
+    })
+
     describe('#toHaveData', function () {
       it('does not pass if the element does not have the data', function () {
         expect($el).not.toHaveData('foo')
