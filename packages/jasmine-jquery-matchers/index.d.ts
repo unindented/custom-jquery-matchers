@@ -10,6 +10,7 @@ declare namespace jasmine {
     toHaveAttr(key: string, val?: any): boolean
     toHaveProp(key: string, val?: any): boolean
     toHaveText(text: string | RegExp): boolean
+    toHaveHtml(text: string | RegExp): boolean
     toHaveData(key: string, val?: any): boolean
     toHaveValue(val: any): boolean
     toHaveCss(css: {[key: string]: any}): boolean
