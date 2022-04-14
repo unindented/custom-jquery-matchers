@@ -1,7 +1,7 @@
 {
   "name": "jasmine-jquery-matchers",
   "description": "Add a set of custom matchers for HTML and CSS related checks, using jQuery.",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "main": "dist/jasmine-jquery-matchers.js",
   "typings": "index.d.ts",
   "license": "MIT",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@types/jasmine": "^2.8.4",
-    "custom-jquery-matchers": "^2.1.0",
+    "custom-jquery-matchers": "^2.1.1",
     "istanbul-instrumenter-loader": "^3.0.0",
     "karma": "^2.0.0",
     "karma-coverage": "^1.1.1",
